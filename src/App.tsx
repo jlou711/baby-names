@@ -6,7 +6,15 @@ function App(): JSX.Element {
   return (
     <div>
       {sortNames.map((x, i) => {
-        return <p key={i}>{x.name}</p>;
+        return x.sex === "m" ? (
+          <p key={i} className="boy-name">
+            {x.name}
+          </p>
+        ) : (
+          <p key={i} className="girl-name">
+            {x.name}
+          </p>
+        );
       })}
     </div>
   );
