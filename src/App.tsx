@@ -1,7 +1,15 @@
-import { greet } from "./utils/greet";
+import { babyNames } from "./data/baby-names";
+import { compareBabyNames } from "./utils/compareBabyNames";
 
 function App(): JSX.Element {
-  return <h1>{greet("World")}</h1>;
+  const sortNames = babyNames.sort(compareBabyNames);
+  return (
+    <div>
+      {sortNames.map((x, i) => {
+        return <p key={i}>{x.name}</p>;
+      })}
+    </div>
+  );
 }
 
 export default App;
