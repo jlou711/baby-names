@@ -35,7 +35,7 @@ function App(): JSX.Element {
   return (
     <>
       <SearchBar input={searchText} onChange={setSearchText} />
-      <div>
+      <div className="gender_select_container">
         <br></br>
         <input
           type="radio"
@@ -65,7 +65,7 @@ function App(): JSX.Element {
         <label htmlFor="female">Female</label>
         <br></br>
       </div>
-      <div>
+      <div className="favorites_container">
         <h1>Favorite Names: </h1>
         {favoriteNames.map((x, i) => {
           return (
@@ -79,7 +79,7 @@ function App(): JSX.Element {
           );
         })}
       </div>
-      <div>
+      <div className="default_name_container">
         {filteredNames.map((x, i) => {
           return (
             <NameButton

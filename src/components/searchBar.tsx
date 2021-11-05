@@ -5,14 +5,12 @@ export interface ISearchBar {
 
 export function SearchBar(props: ISearchBar): JSX.Element {
   return (
-    <>
-      <label htmlFor="search-bar">Search bar </label>
-      <input
-        type="text"
-        id="search-bar"
-        value={props.input}
-        onChange={(e) => props.onChange(e.target.value)}
-      ></input>
-    </>
+    <input
+      placeholder="Search for a name.."
+      type="text"
+      id="search-bar"
+      value={props.input}
+      onChange={(e) => props.onChange(e.target.value)}
+    ></input>
   );
 }

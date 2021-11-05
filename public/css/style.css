@@ -1,7 +1,20 @@
+body {
+  background-color: linen;
+}
 .boy-name {
-  color: blue;
+  color: darkslateblue;
+  background-color: powderblue;
+  border: none;
+  border-radius: 2px;
+  margin: 2px;
+  font-size: 1rem;
 }
 
 .girl-name {
-  color: pink;
+  color: white;
+  background: pink;
+  border: none;
+  border-radius: 2px;
+  margin: 2px;
+  font-size: 1rem;
 }
