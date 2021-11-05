@@ -10,9 +10,11 @@ import { IBabyNames } from "../IBabyNames";
 export function applyNameSearchFilter(
   arr: IBabyNames[],
   searchTerm: string,
+  gender?: string,
   bannedTerms?: string[]
 ): IBabyNames[] {
   return arr
     .filter((x) => x.name.toLowerCase().includes(searchTerm.toLowerCase()))
-    .filter((x) => (bannedTerms ? bannedTerms.indexOf(x.name) === -1 : true));
+    .filter((x) => (bannedTerms ? bannedTerms.indexOf(x.name) === -1 : true))
+    .filter((x) => (gender !== "" ? x.sex === gender : true));
 }
