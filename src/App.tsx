@@ -1,22 +1,66 @@
 import { babyNames } from "./data/baby-names";
+import { SearchBar } from "./components/searchBar";
 import { compareBabyNames } from "./utils/compareBabyNames";
+import { useState } from "react";
+import { applyNameSearchFilter } from "./utils/applySearchFilter";
+import { IBabyNames } from "./IBabyNames";
+import { NameButton } from "./components/nameButton";
+
+const sortNames: IBabyNames[] = [...babyNames].sort(compareBabyNames);
 
 function App(): JSX.Element {
-  const sortNames = babyNames.sort(compareBabyNames);
+  const [searchText, setSearchText] = useState("");
+  const [favoriteNames, setFavoriteNamesList] = useState<IBabyNames[]>([]);
+
+  function handleFavoriteNames(value: string, add: boolean) {
+    if (add) {
+      setFavoriteNamesList((favoriteNames) => [
+        ...favoriteNames,
+        ...babyNames.filter((x) => x.name === value),
+      ]);
+    } else {
+      setFavoriteNamesList((favoriteNames) => [
+        ...favoriteNames.filter((x) => x.name !== value),
+      ]);
+    }
+  }
+  const filteredNames = applyNameSearchFilter(
+    sortNames,
+    searchText,
+    favoriteNames.map((a) => a.name)
+  );
+
   return (
-    <div>
-      {sortNames.map((x, i) => {
-        return x.sex === "m" ? (
-          <p key={i} className="boy-name">
-            {x.name}
-          </p>
-        ) : (
-          <p key={i} className="girl-name">
-            {x.name}
-          </p>
-        );
-      })}
-    </div>
+    <>
+      <SearchBar input={searchText} onChange={setSearchText} />
+      <div>
+        <h1>Favorite Names: </h1>
+        {favoriteNames.map((x, i) => {
+          return (
+            <NameButton
+              key={i}
+              name={x.name}
+              sex={x.sex}
+              add={false}
+              onClick={handleFavoriteNames}
+            ></NameButton>
+          );
+        })}
+      </div>
+      <div>
+        {filteredNames.map((x, i) => {
+          return (
+            <NameButton
+              key={i}
+              name={x.name}
+              sex={x.sex}
+              add={true}
+              onClick={handleFavoriteNames}
+            ></NameButton>
+          );
+        })}
+      </div>
+    </>
   );
 }
 
