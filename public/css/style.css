@@ -1,6 +1,59 @@
 body {
   background-color: linen;
 }
+
+h1 {
+  font-family: monospace;
+  margin: 5px;
+}
+footer {
+  max-width: 75%;
+  align-items: center;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.filter_container {
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  max-width: 75%;
+  justify-content: space-between;
+}
+
+.filter_container img {
+  width: 36px;
+  height: 36px;
+}
+
+.filter_container input {
+  width: 100%;
+  border-radius: 5px;
+  opacity: 0.75;
+  border: none;
+  padding: 5px;
+  font-family: monospace;
+}
+
+.neutral-select {
+  background: slategrey;
+}
+.male-select {
+  background: dodgerblue;
+}
+.female-select {
+  background: hotpink;
+}
+
+.name_container {
+  max-width: 75%;
+  align-items: center;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
 .boy-name {
   color: darkslateblue;
   background-color: powderblue;
@@ -17,4 +70,16 @@ body {
   border-radius: 2px;
   margin: 2px;
   font-size: 1rem;
+}
+
+.radio_item {
+  display: none !important;
+}
+
+.label_item {
+  opacity: 0.1;
+}
+
+.radio_item:checked + label {
+  opacity: 1;
 }

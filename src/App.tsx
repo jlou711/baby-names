@@ -34,64 +34,92 @@ function App(): JSX.Element {
 
   return (
     <>
-      <SearchBar input={searchText} onChange={setSearchText} />
-      <div className="gender_select_container">
-        <br></br>
-        <input
-          type="radio"
-          id="neutral"
-          name="gender_select"
-          value=""
-          onChange={(e) => setGenderSelected(e.target.value)}
-        />
-        <label htmlFor="neutral">No Gender</label>
-        <br></br>
-        <input
-          type="radio"
-          id="male"
-          name="gender_select"
-          value="m"
-          onChange={(e) => setGenderSelected(e.target.value)}
-        />
-        <label htmlFor="male">Male</label>
-        <br></br>
-        <input
-          type="radio"
-          id="female"
-          name="gender_select"
-          value="f"
-          onChange={(e) => setGenderSelected(e.target.value)}
-        />
-        <label htmlFor="female">Female</label>
-        <br></br>
-      </div>
-      <div className="favorites_container">
-        <h1>Favorite Names: </h1>
-        {favoriteNames.map((x, i) => {
-          return (
-            <NameButton
-              key={i}
-              name={x.name}
-              sex={x.sex}
-              add={false}
-              onClick={handleFavoriteNames}
-            ></NameButton>
-          );
-        })}
-      </div>
-      <div className="default_name_container">
-        {filteredNames.map((x, i) => {
-          return (
-            <NameButton
-              key={i}
-              name={x.name}
-              sex={x.sex}
-              add={true}
-              onClick={handleFavoriteNames}
-            ></NameButton>
-          );
-        })}
-      </div>
+      <main>
+        <div className="filter_container">
+          <SearchBar input={searchText} onChange={setSearchText} />
+          <input
+            type="radio"
+            className="radio_item"
+            value=""
+            name="item"
+            id="neutral"
+            onChange={(e) => setGenderSelected(e.target.value)}
+          />
+          <label className="label_item" htmlFor="neutral">
+            <img
+              src="https://cdn-icons.flaticon.com/png/512/1996/premium/1996667.png?token=exp=1636387861~hmac=2a65e8aedc7a39c262b24c2d2c327ebc"
+              alt="neutral select"
+            />
+          </label>
+          <input
+            type="radio"
+            className="radio_item"
+            value="m"
+            name="item"
+            id="male"
+            onChange={(e) => setGenderSelected(e.target.value)}
+          />
+          <label className="label_item" htmlFor="male">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/81/81184.png"
+              alt="male select"
+            />
+          </label>
+          <input
+            type="radio"
+            className="radio_item"
+            value="f"
+            name="item"
+            id="female"
+            onChange={(e) => setGenderSelected(e.target.value)}
+          />
+          <label className="label_item" htmlFor="female">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/81/81184.png"
+              alt="female select"
+            />
+          </label>
+        </div>
+        <div className="name_container">
+          <h1>Favorite Names: </h1>
+          {favoriteNames.map((x, i) => {
+            return (
+              <NameButton
+                key={i}
+                name={x.name}
+                sex={x.sex}
+                add={false}
+                onClick={handleFavoriteNames}
+              ></NameButton>
+            );
+          })}
+        </div>
+        <div className="name_container">
+          {filteredNames.map((x, i) => {
+            return (
+              <NameButton
+                key={i}
+                name={x.name}
+                sex={x.sex}
+                add={true}
+                onClick={handleFavoriteNames}
+              ></NameButton>
+            );
+          })}
+        </div>
+      </main>
+      <footer>
+        <div>
+          Icons made by{" "}
+          <a href="https://www.flaticon.com/authors/freepik" title="Freepik">
+            Freepik
+          </a>{" "}
+          from{" "}
+          <a href="https://www.flaticon.com/" title="Flaticon">
+            www.flaticon.com
+          </a>
+        </div>
+      </footer>
     </>
   );
 }
