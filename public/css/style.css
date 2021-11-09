@@ -37,13 +37,26 @@ footer {
 }
 
 .neutral-select {
-  background: slategrey;
+  background-color: rgba(153, 153, 153, 0.75);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  padding: 2px 0;
+  margin-left: 10px;
 }
 .male-select {
-  background: dodgerblue;
+  background-color: rgba(186, 225, 255, 0.75);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  padding: 2px 0;
 }
 .female-select {
-  background: hotpink;
+  background-color: rgba(255, 179, 186, 0.75);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  padding: 2px 0;
 }
 
 .name_container {

@@ -45,7 +45,7 @@ function App(): JSX.Element {
             id="neutral"
             onChange={(e) => setGenderSelected(e.target.value)}
           />
-          <label className="label_item" htmlFor="neutral">
+          <label className="label_item neutral-select" htmlFor="neutral">
             <img
               src="https://cdn-icons.flaticon.com/png/512/1996/premium/1996667.png?token=exp=1636387861~hmac=2a65e8aedc7a39c262b24c2d2c327ebc"
               alt="neutral select"
@@ -53,13 +53,13 @@ function App(): JSX.Element {
           </label>
           <input
             type="radio"
-            className="radio_item"
+            className="radio_item male-select"
             value="m"
             name="item"
             id="male"
             onChange={(e) => setGenderSelected(e.target.value)}
           />
-          <label className="label_item" htmlFor="male">
+          <label className="label_item male-select" htmlFor="male">
             <img
               src="https://cdn-icons-png.flaticon.com/512/81/81184.png"
               alt="male select"
@@ -73,7 +73,7 @@ function App(): JSX.Element {
             id="female"
             onChange={(e) => setGenderSelected(e.target.value)}
           />
-          <label className="label_item" htmlFor="female">
+          <label className="label_item female-select" htmlFor="female">
             <img
               src="https://cdn-icons-png.flaticon.com/512/81/81184.png"
               alt="female select"
